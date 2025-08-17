@@ -1,0 +1,16 @@
+spring:
+  application.name: modulith
+  datasource:
+    url: jdbc:postgresql://localhost:5433/modulith
+    username: modulith
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate.ddl-auto: none
+    open-in-view: false
+    properties.hibernate.format_sql: true
+    show-sql: true
+  liquibase.change-log: classpath:db/changelog/db.changelog-master.xml
+  modulith.events:
+    completion-mode: update
+    externalization.enabled: false

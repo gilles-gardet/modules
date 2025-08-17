@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="004-insert-sample-users" author="ggardet">
+        <insert tableName="users">
+            <column name="username" value="john.doe"/>
+            <column name="email" value="john.doe@example.com"/>
+            <column name="password" value="$2a$10$dXJ3SW6G7P4ScqNukjBy6uBvHisCO4N6dMeJqC9.n8jLlc5h0WbTu"/>
+            <column name="first_name" value="John"/>
+            <column name="last_name" value="Doe"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="users">
+            <column name="username" value="jane.smith"/>
+            <column name="email" value="jane.smith@example.com"/>
+            <column name="password" value="$2a$10$dXJ3SW6G7P4ScqNukjBy6uBvHisCO4N6dMeJqC9.n8jLlc5h0WbTu"/>
+            <column name="first_name" value="Jane"/>
+            <column name="last_name" value="Smith"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="users">
+            <column name="username" value="bob.wilson"/>
+            <column name="email" value="bob.wilson@example.com"/>
+            <column name="password" value="$2a$10$dXJ3SW6G7P4ScqNukjBy6uBvHisCO4N6dMeJqC9.n8jLlc5h0WbTu"/>
+            <column name="first_name" value="Bob"/>
+            <column name="last_name" value="Wilson"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="004-insert-sample-authors" author="ggardet">
+        <insert tableName="authors">
+            <column name="first_name" value="Victor"/>
+            <column name="last_name" value="Hugo"/>
+            <column name="nationality" value="French"/>
+            <column name="birth_year" value="1802"/>
+            <column name="biography" value="Victor-Marie Hugo was a French poet, novelist, and dramatist of the Romantic movement. He is considered one of the greatest and best-known French writers."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="Jane"/>
+            <column name="last_name" value="Austen"/>
+            <column name="nationality" value="British"/>
+            <column name="birth_year" value="1775"/>
+            <column name="biography" value="Jane Austen was an English novelist known primarily for her six major novels, which interpret, critique and comment upon the British landed gentry at the end of the 18th century."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="Gabriel"/>
+            <column name="last_name" value="García Márquez"/>
+            <column name="nationality" value="Colombian"/>
+            <column name="birth_year" value="1927"/>
+            <column name="biography" value="Gabriel José de la Concordia García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo throughout Latin America."/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="004-insert-sample-books" author="ggardet">
+        <insert tableName="books">
+            <column name="title" value="Les Misérables"/>
+            <column name="isbn" value="978-0-14-044430-4"/>
+            <column name="description" value="A French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century."/>
+            <column name="published_date" value="1862-01-01"/>
+            <column name="pages" value="1463"/>
+            <column name="genre" value="Historical Fiction"/>
+            <column name="author_id" value="1"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Notre-Dame de Paris"/>
+            <column name="isbn" value="978-0-14-043847-1"/>
+            <column name="description" value="A French Gothic novel by Victor Hugo, published in 1831. The story is set in Paris, France in the Late Middle Ages, during the reign of Louis XI."/>
+            <column name="published_date" value="1831-01-14"/>
+            <column name="pages" value="512"/>
+            <column name="genre" value="Gothic Fiction"/>
+            <column name="author_id" value="1"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Pride and Prejudice"/>
+            <column name="isbn" value="978-0-14-143951-8"/>
+            <column name="description" value="A romantic novel by Jane Austen, first published in 1813. The story follows the main character Elizabeth Bennet as she deals with issues of manners, upbringing, morality, education, and marriage."/>
+            <column name="published_date" value="1813-01-28"/>
+            <column name="pages" value="432"/>
+            <column name="genre" value="Romance"/>
+            <column name="author_id" value="2"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Emma"/>
+            <column name="isbn" value="978-0-14-143955-6"/>
+            <column name="description" value="A novel about youthful hubris and romantic misunderstandings, written by Jane Austen. It is set in the fictional country village of Highbury and the surrounding estates of Hartfield, Randalls, and Donwell Abbey."/>
+            <column name="published_date" value="1815-12-23"/>
+            <column name="pages" value="474"/>
+            <column name="genre" value="Romance"/>
+            <column name="author_id" value="2"/>
+            <column name="available" valueBoolean="false"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="One Hundred Years of Solitude"/>
+            <column name="isbn" value="978-0-06-088328-7"/>
+            <column name="description" value="A landmark 1967 novel by Colombian author Gabriel García Márquez that tells the multi-generational story of the Buendía family, whose patriarch, José Arcadio Buendía, founded the fictitious town of Macondo."/>
+            <column name="published_date" value="1967-06-05"/>
+            <column name="pages" value="417"/>
+            <column name="genre" value="Magical Realism"/>
+            <column name="author_id" value="3"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
