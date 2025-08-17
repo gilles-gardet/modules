@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="003-create-books-table" author="ggardet">
+        <createTable tableName="books">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isbn" type="VARCHAR(20)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="published_date" type="DATE"/>
+            <column name="pages" type="INTEGER"/>
+            <column name="genre" type="VARCHAR(100)"/>
+            <column name="author_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="available" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="books"
+                baseColumnNames="author_id"
+                constraintName="fk_books_author"
+                referencedTableName="authors"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"/>
+
+        <createIndex tableName="books" indexName="idx_books_isbn">
+            <column name="isbn"/>
+        </createIndex>
+        
+        <createIndex tableName="books" indexName="idx_books_title">
+            <column name="title"/>
+        </createIndex>
+        
+        <createIndex tableName="books" indexName="idx_books_author">
+            <column name="author_id"/>
+        </createIndex>
+        
+        <createIndex tableName="books" indexName="idx_books_genre">
+            <column name="genre"/>
+        </createIndex>
+        
+        <createIndex tableName="books" indexName="idx_books_available">
+            <column name="available"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

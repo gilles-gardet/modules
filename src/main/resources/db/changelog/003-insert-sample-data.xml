@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="004-insert-sample-authors" author="ggardet">
+        <insert tableName="authors">
+            <column name="first_name" value="Victor"/>
+            <column name="last_name" value="Hugo"/>
+            <column name="nationality" value="French"/>
+            <column name="birth_year" value="1802"/>
+            <column name="biography" value="Victor-Marie Hugo was a French poet, novelist, and dramatist of the Romantic movement. He is considered one of the greatest and best-known French writers."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="Jane"/>
+            <column name="last_name" value="Austen"/>
+            <column name="nationality" value="British"/>
+            <column name="birth_year" value="1775"/>
+            <column name="biography" value="Jane Austen was an English novelist known primarily for her six major novels, which interpret, critique and comment upon the British landed gentry at the end of the 18th century."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="Gabriel"/>
+            <column name="last_name" value="García Márquez"/>
+            <column name="nationality" value="Colombian"/>
+            <column name="birth_year" value="1927"/>
+            <column name="biography" value="Gabriel José de la Concordia García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo throughout Latin America."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="George"/>
+            <column name="last_name" value="Orwell"/>
+            <column name="nationality" value="British"/>
+            <column name="birth_year" value="1903"/>
+            <column name="biography" value="Eric Arthur Blair, known by his pen name George Orwell, was an English novelist, essayist, journalist and critic whose work is marked by lucid prose, biting social criticism, and total opposition to totalitarianism."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="Agatha"/>
+            <column name="last_name" value="Christie"/>
+            <column name="nationality" value="British"/>
+            <column name="birth_year" value="1890"/>
+            <column name="biography" value="Dame Agatha Mary Clarissa Christie was an English writer known for her sixty-six detective novels and fourteen short story collections, particularly those revolving around fictional detectives Hercule Poirot and Miss Marple."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="Haruki"/>
+            <column name="last_name" value="Murakami"/>
+            <column name="nationality" value="Japanese"/>
+            <column name="birth_year" value="1949"/>
+            <column name="biography" value="Haruki Murakami is a Japanese writer. His novels, essays, and short stories have been bestsellers in Japan as well as internationally, with his work being translated into 50 languages and selling millions of copies outside his native country."/>
+        </insert>
+        
+        <insert tableName="authors">
+            <column name="first_name" value="J.K."/>
+            <column name="last_name" value="Rowling"/>
+            <column name="nationality" value="British"/>
+            <column name="birth_year" value="1965"/>
+            <column name="biography" value="Joanne Rowling, better known by her pen name J. K. Rowling, is a British author and philanthropist. She wrote a seven-volume children's fantasy series, Harry Potter, published from 1997 to 2007."/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="004-insert-sample-books" author="ggardet">
+        <insert tableName="books">
+            <column name="title" value="Les Misérables"/>
+            <column name="isbn" value="978-0-14-044430-4"/>
+            <column name="description" value="A French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century."/>
+            <column name="published_date" value="1862-01-01"/>
+            <column name="pages" value="1463"/>
+            <column name="genre" value="Historical Fiction"/>
+            <column name="author_id" value="1"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Notre-Dame de Paris"/>
+            <column name="isbn" value="978-0-14-043847-1"/>
+            <column name="description" value="A French Gothic novel by Victor Hugo, published in 1831. The story is set in Paris, France in the Late Middle Ages, during the reign of Louis XI."/>
+            <column name="published_date" value="1831-01-14"/>
+            <column name="pages" value="512"/>
+            <column name="genre" value="Gothic Fiction"/>
+            <column name="author_id" value="1"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Pride and Prejudice"/>
+            <column name="isbn" value="978-0-14-143951-8"/>
+            <column name="description" value="A romantic novel by Jane Austen, first published in 1813. The story follows the main character Elizabeth Bennet as she deals with issues of manners, upbringing, morality, education, and marriage."/>
+            <column name="published_date" value="1813-01-28"/>
+            <column name="pages" value="432"/>
+            <column name="genre" value="Romance"/>
+            <column name="author_id" value="2"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Emma"/>
+            <column name="isbn" value="978-0-14-143955-6"/>
+            <column name="description" value="A novel about youthful hubris and romantic misunderstandings, written by Jane Austen. It is set in the fictional country village of Highbury and the surrounding estates of Hartfield, Randalls, and Donwell Abbey."/>
+            <column name="published_date" value="1815-12-23"/>
+            <column name="pages" value="474"/>
+            <column name="genre" value="Romance"/>
+            <column name="author_id" value="2"/>
+            <column name="available" valueBoolean="false"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="One Hundred Years of Solitude"/>
+            <column name="isbn" value="978-0-06-088328-7"/>
+            <column name="description" value="A landmark 1967 novel by Colombian author Gabriel García Márquez that tells the multi-generational story of the Buendía family, whose patriarch, José Arcadio Buendía, founded the fictitious town of Macondo."/>
+            <column name="published_date" value="1967-06-05"/>
+            <column name="pages" value="417"/>
+            <column name="genre" value="Magical Realism"/>
+            <column name="author_id" value="3"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <!-- Additional books for Victor Hugo (author_id: 1) -->
+        <insert tableName="books">
+            <column name="title" value="The Man Who Laughs"/>
+            <column name="isbn" value="978-0-14-044788-6"/>
+            <column name="description" value="A novel by Victor Hugo, originally published in April 1869 under the French title L'Homme qui rit. It takes place in England in the 1680s and early 1700s, during the reigns of James II and Queen Anne."/>
+            <column name="published_date" value="1869-04-01"/>
+            <column name="pages" value="736"/>
+            <column name="genre" value="Historical Fiction"/>
+            <column name="author_id" value="1"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <!-- Additional books for Jane Austen (author_id: 2) -->
+        <insert tableName="books">
+            <column name="title" value="Sense and Sensibility"/>
+            <column name="isbn" value="978-0-14-143966-2"/>
+            <column name="description" value="A novel by Jane Austen, published in 1811. It was published anonymously; By A Lady appears on the cover page where the author's name might have been."/>
+            <column name="published_date" value="1811-10-30"/>
+            <column name="pages" value="374"/>
+            <column name="genre" value="Romance"/>
+            <column name="author_id" value="2"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <!-- Additional books for Gabriel García Márquez (author_id: 3) -->
+        <insert tableName="books">
+            <column name="title" value="Love in the Time of Cholera"/>
+            <column name="isbn" value="978-0-14-118280-4"/>
+            <column name="description" value="A novel by Colombian Nobel Prize winner Gabriel García Márquez. The novel was first published in Spanish in 1985. It is a love story that follows the lives of Florentino Ariza and Fermina Daza over more than fifty years."/>
+            <column name="published_date" value="1985-10-05"/>
+            <column name="pages" value="348"/>
+            <column name="genre" value="Romance"/>
+            <column name="author_id" value="3"/>
+            <column name="available" valueBoolean="false"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Chronicle of a Death Foretold"/>
+            <column name="isbn" value="978-1-4000-3471-1"/>
+            <column name="description" value="A novella by Gabriel García Márquez, published in 1981. It tells, in the form of a pseudo-journalistic reconstruction, the story of the murder of Santiago Nasar by the Vicario twins."/>
+            <column name="published_date" value="1981-04-01"/>
+            <column name="pages" value="120"/>
+            <column name="genre" value="Literary Fiction"/>
+            <column name="author_id" value="3"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <!-- Books for George Orwell (author_id: 4) -->
+        <insert tableName="books">
+            <column name="title" value="1984"/>
+            <column name="isbn" value="978-0-452-28423-4"/>
+            <column name="description" value="A dystopian social science fiction novel and cautionary tale written by English writer George Orwell. It was published on 8 June 1949 by Secker &amp; Warburg as Orwell's ninth and final book completed in his lifetime."/>
+            <column name="published_date" value="1949-06-08"/>
+            <column name="pages" value="328"/>
+            <column name="genre" value="Dystopian Fiction"/>
+            <column name="author_id" value="4"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Animal Farm"/>
+            <column name="isbn" value="978-0-452-28424-1"/>
+            <column name="description" value="A beast fable, in the form of a satirical allegorical novella, by George Orwell, first published in England on 17 August 1945. It tells the story of a group of farm animals who rebel against their human farmer, hoping to create a society where animals can be equal, free, and happy."/>
+            <column name="published_date" value="1945-08-17"/>
+            <column name="pages" value="112"/>
+            <column name="genre" value="Political Satire"/>
+            <column name="author_id" value="4"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Homage to Catalonia"/>
+            <column name="isbn" value="978-0-15-642117-1"/>
+            <column name="description" value="George Orwell's personal account of his experiences and observations fighting for the POUM militia of the Republican army during the Spanish Civil War."/>
+            <column name="published_date" value="1938-04-25"/>
+            <column name="pages" value="232"/>
+            <column name="genre" value="Memoir"/>
+            <column name="author_id" value="4"/>
+            <column name="available" valueBoolean="false"/>
+        </insert>
+        
+        <!-- Books for Agatha Christie (author_id: 5) -->
+        <insert tableName="books">
+            <column name="title" value="Murder on the Orient Express"/>
+            <column name="isbn" value="978-0-00-711930-7"/>
+            <column name="description" value="A detective novel by British writer Agatha Christie featuring the Belgian detective Hercule Poirot. It was first published in the United Kingdom by the Collins Crime Club on 1 January 1934."/>
+            <column name="published_date" value="1934-01-01"/>
+            <column name="pages" value="256"/>
+            <column name="genre" value="Mystery"/>
+            <column name="author_id" value="5"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="And Then There Were None"/>
+            <column name="isbn" value="978-0-00-712437-0"/>
+            <column name="description" value="A mystery novel by English writer Agatha Christie, described by her as the most difficult of her books to write. It was first published in the United Kingdom by the Collins Crime Club on 6 November 1939."/>
+            <column name="published_date" value="1939-11-06"/>
+            <column name="pages" value="272"/>
+            <column name="genre" value="Mystery"/>
+            <column name="author_id" value="5"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="The ABC Murders"/>
+            <column name="isbn" value="978-0-00-716218-1"/>
+            <column name="description" value="A work of detective fiction by British writer Agatha Christie, featuring her characters Hercule Poirot, Arthur Hastings and Chief Inspector Japp. It was first published in the UK by the Collins Crime Club on 6 January 1936."/>
+            <column name="published_date" value="1936-01-06"/>
+            <column name="pages" value="256"/>
+            <column name="genre" value="Mystery"/>
+            <column name="author_id" value="5"/>
+            <column name="available" valueBoolean="false"/>
+        </insert>
+        
+        <!-- Books for Haruki Murakami (author_id: 6) -->
+        <insert tableName="books">
+            <column name="title" value="Norwegian Wood"/>
+            <column name="isbn" value="978-0-375-70427-4"/>
+            <column name="description" value="A 1987 novel by Japanese author Haruki Murakami. The novel is a nostalgic story of loss and burgeoning sexuality. It is told from the first-person perspective of Toru Watanabe, who looks back on his days as a college student living in Tokyo."/>
+            <column name="published_date" value="1987-09-04"/>
+            <column name="pages" value="296"/>
+            <column name="genre" value="Literary Fiction"/>
+            <column name="author_id" value="6"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Kafka on the Shore"/>
+            <column name="isbn" value="978-1-4000-7927-6"/>
+            <column name="description" value="A 2002 novel by Japanese author Haruki Murakami. Its 2005 English translation was among The 10 Best Books of 2005 from The New York Times and received the World Fantasy Award for 2006."/>
+            <column name="published_date" value="2002-09-12"/>
+            <column name="pages" value="505"/>
+            <column name="genre" value="Magical Realism"/>
+            <column name="author_id" value="6"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <!-- Books for J.K. Rowling (author_id: 7) -->
+        <insert tableName="books">
+            <column name="title" value="Harry Potter and the Philosopher's Stone"/>
+            <column name="isbn" value="978-0-7475-3269-9"/>
+            <column name="description" value="A fantasy novel written by British author J. K. Rowling. The first novel in the Harry Potter series and Rowling's debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage."/>
+            <column name="published_date" value="1997-06-26"/>
+            <column name="pages" value="223"/>
+            <column name="genre" value="Fantasy"/>
+            <column name="author_id" value="7"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="Harry Potter and the Chamber of Secrets"/>
+            <column name="isbn" value="978-0-7475-3849-3"/>
+            <column name="description" value="A fantasy novel written by British author J. K. Rowling and the second novel in the Harry Potter series. The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry."/>
+            <column name="published_date" value="1998-07-02"/>
+            <column name="pages" value="251"/>
+            <column name="genre" value="Fantasy"/>
+            <column name="author_id" value="7"/>
+            <column name="available" valueBoolean="true"/>
+        </insert>
+        
+        <insert tableName="books">
+            <column name="title" value="The Casual Vacancy"/>
+            <column name="isbn" value="978-0-316-22853-4"/>
+            <column name="description" value="A 2012 novel by J. K. Rowling. The book was published worldwide by the Little, Brown Book Group on 27 September 2012. A contemporary social satire, the novel concerns a struggle for power in a fictional English town called Pagford."/>
+            <column name="published_date" value="2012-09-27"/>
+            <column name="pages" value="503"/>
+            <column name="genre" value="Social Fiction"/>
+            <column name="author_id" value="7"/>
+            <column name="available" valueBoolean="false"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

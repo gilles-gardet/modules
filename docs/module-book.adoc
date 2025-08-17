@@ -1,0 +1,7 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.ggardet.modulith.book`
+|Events listened to
+|* `c.g.m.a.api.AuthorDeleted` 
+|===
