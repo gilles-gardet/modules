@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="002-create-authors-table" author="ggardet">
+        <createTable tableName="authors">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nationality" type="VARCHAR(100)"/>
+            <column name="birth_year" type="INTEGER"/>
+            <column name="biography" type="TEXT"/>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex tableName="authors" indexName="idx_authors_name">
+            <column name="last_name"/>
+            <column name="first_name"/>
+        </createIndex>
+        
+        <createIndex tableName="authors" indexName="idx_authors_nationality">
+            <column name="nationality"/>
+        </createIndex>
+        
+        <createIndex tableName="authors" indexName="idx_authors_birth_year">
+            <column name="birth_year"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

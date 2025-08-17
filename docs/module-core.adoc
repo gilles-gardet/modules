@@ -1,0 +1,9 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.ggardet.modulith.core`
+|Spring components
+|* `c.g.m.c.event.EventConfig`
+* `c.g.m.c.event.EventPublications`
+* `c.g.m.c.security.SecurityConfig`
+|===

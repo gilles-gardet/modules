@@ -1,0 +1,141 @@
+@baseUrl = http://localhost:8080/api
+@username = admin
+@password = password
+
+### Get all authors
+GET {{baseUrl}}/authors
+Authorization: Basic {{username}} {{password}}
+
+### Get all authors with pagination parameters
+GET {{baseUrl}}/authors?page=0&size=5&sort=lastName,asc
+Authorization: Basic {{username}} {{password}}
+
+### Get author by ID
+GET {{baseUrl}}/authors/1
+Authorization: Basic {{username}} {{password}}
+
+### Create a new author
+POST {{baseUrl}}/authors
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "firstName": "Stephen",
+  "lastName": "King",
+  "nationality": "American",
+  "birthYear": 1947,
+  "biography": "Stephen Edwin King is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels."
+}
+
+### Update an existing author
+PUT {{baseUrl}}/authors/1
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "firstName": "Victor",
+  "lastName": "Hugo",
+  "nationality": "French",
+  "birthYear": 1802,
+  "biography": "Victor-Marie Hugo was a French poet, novelist, essayist, playwright, and dramatist of the Romantic movement. During a literary career that spanned more than sixty years, he wrote abundantly in an exceptional variety of genres."
+}
+
+### Delete an author (this will trigger deletion of associated books)
+DELETE {{baseUrl}}/authors/7
+Authorization: Basic {{username}} {{password}}
+
+### Get all books (paginated)
+GET {{baseUrl}}/books
+Authorization: Basic {{username}} {{password}}
+
+### Get all books with pagination parameters
+GET {{baseUrl}}/books?page=0&size=10&sort=title,asc
+Authorization: Basic {{username}} {{password}}
+
+### Get book by ID
+GET {{baseUrl}}/books/1
+Authorization: Basic {{username}} {{password}}
+
+### Create a new book
+POST {{baseUrl}}/books
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "title": "The Shining",
+  "isbn": "978-0-385-12167-5",
+  "description": "A horror novel by American author Stephen King. Published in 1977, it is King's third published novel and first hardback bestseller.",
+  "publishedDate": "1977-01-28",
+  "pages": 447,
+  "genre": "Horror",
+  "authorId": 8,
+  "available": true
+}
+
+### Update an existing book
+PUT {{baseUrl}}/books/1
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "title": "Les Misérables (Updated Edition)",
+  "isbn": "978-0-14-044430-4",
+  "description": "A French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century. This updated edition includes additional notes and commentary.",
+  "publishedDate": "1862-01-01",
+  "pages": 1463,
+  "genre": "Historical Fiction",
+  "authorId": 1,
+  "available": true
+}
+
+### Delete a book
+DELETE {{baseUrl}}/books/18
+Authorization: Basic {{username}} {{password}}
+
+### Scenario 1 - Step 1: Create author
+POST {{baseUrl}}/authors
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "firstName": "Isaac",
+  "lastName": "Asimov",
+  "nationality": "American",
+  "birthYear": 1920,
+  "biography": "Isaac Asimov was an American writer and professor of biochemistry at Boston University. He was known for his works of science fiction and popular science."
+}
+
+> {%
+  client.test("Author created successfully", function() {
+    client.assert(response.status === 201, "Expected status 201");
+    client.global.set("newAuthorId", response.body.id);
+  });
+%}
+
+### Scenario 1 - Step 2: Create book for the new author
+POST {{baseUrl}}/books
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "title": "Foundation",
+  "isbn": "978-0-553-29335-0",
+  "description": "Foundation is a science fiction novel by American writer Isaac Asimov. It is the first published in his Foundation Trilogy.",
+  "publishedDate": "1951-05-01",
+  "pages": 244,
+  "genre": "Science Fiction",
+  "authorId": {{newAuthorId}},
+  "available": true
+}
+
+### Scenario 2 - Step 1: Get books by author before deletion
+GET {{baseUrl}}/books
+Authorization: Basic {{username}} {{password}}
+
+### Scenario 2 - Step 2: Delete the author (this should cascade delete books)
+DELETE {{baseUrl}}/authors/{{newAuthorId}}
+Authorization: Basic {{username}} {{password}}
+
+### Scenario 2 - Step 3: Verify books were deleted (try to get the book created above)
+GET {{baseUrl}}/books
+Authorization: Basic {{username}} {{password}}

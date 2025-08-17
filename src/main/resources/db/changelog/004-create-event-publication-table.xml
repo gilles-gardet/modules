@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="005-create-event-publication-table" author="modulith">
+        <comment>Create table for Spring Modulith Event Publication Registry</comment>
+        
+        <createTable tableName="event_publication">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="completion_date" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <column name="event_type" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="listener_id" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publication_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="serialized_event" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex tableName="event_publication" indexName="idx_event_publication_completion_date">
+            <column name="completion_date"/>
+        </createIndex>
+
+        <createIndex tableName="event_publication" indexName="idx_event_publication_publication_date">
+            <column name="publication_date"/>
+        </createIndex>
+
+        <createIndex tableName="event_publication" indexName="idx_event_publication_event_type">
+            <column name="event_type"/>
+        </createIndex>
+
+        <rollback>
+            <dropTable tableName="event_publication"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
